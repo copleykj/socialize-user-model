@@ -16,7 +16,6 @@ Package.onUse(function(api) {
 
     //Add the user-model files
     api.addFiles("common/user-model.js");
-    api.addFiles("server/publications.js", "server");
 
     api.export("User");
 });
