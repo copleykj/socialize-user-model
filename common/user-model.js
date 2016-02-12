@@ -38,8 +38,11 @@ User.prototype.defaultEmail = function () {
     return this.emails && this.emails[0].address;
 };
 
-//Assign a reference from Meteor.users to User.prototype._collection so BaseModel knows how to access it
-User.prototype._collection = Meteor.users;
+//Return override BaseModel.getCollection and return the users collection
+//since we can't make reference to the collection when we setup the collection
+User.prototype.getCollection = function () {
+    return Meteor.users;
+};
 
 //Add the transform to the collection since Meteor.users is pre-defined by the accounts package
 Meteor.users._transform = function (document) {
