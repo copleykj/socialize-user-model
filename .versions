@@ -52,9 +52,9 @@ reactive-var@1.0.6
 retry@1.0.4
 routepolicy@1.0.6
 service-configuration@1.0.5
-socialize:base-model@0.3.1
+socialize:base-model@0.3.2
 socialize:server-time@0.1.2
-socialize:user-model@0.1.5
+socialize:user-model@0.1.6
 spacebars@1.0.7
 spacebars-compiler@1.0.7
 tmeasday:publish-with-relations@0.2.0
