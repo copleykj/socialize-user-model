@@ -1,7 +1,7 @@
 Package.describe({
     name: "socialize:user-model",
     summary: "A social user package",
-    version: "0.1.6",
+    version: "0.1.7",
     git: "https://github.com/copleykj/socialize-user-model.git"
 });
 
@@ -9,7 +9,7 @@ Package.onUse(function(api) {
     api.versionsFrom("1.0.2.1");
 
     api.use([
-        "socialize:base-model@0.3.2",
+        "socialize:base-model@0.4.0",
         "accounts-base"
     ]);
 
