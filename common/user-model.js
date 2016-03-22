@@ -24,9 +24,7 @@ User.prototype.displayName = function () {
 User.prototype.isSelf = function (user) {
     var userId = user && user._id || Meteor.userId();
 
-    if(this._id === userId){
-        return true;
-    }
+    return this._id === userId;
 };
 
 /**
