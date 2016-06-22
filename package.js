@@ -9,14 +9,11 @@ Package.onUse(function(api) {
     api.versionsFrom("1.0.2.1");
 
     api.use([
-        "socialize:base-model@0.4.0",
+        "socialize:linkable-model@1.0.0",
         "accounts-base"
     ]);
 
-    api.imply(["socialize:base-model", "accounts-base"]);
+    api.imply(["socialize:linkable-model", "accounts-base"]);
 
-    //Add the user-model files
-    api.addFiles("common/user-model.js");
-
-    api.export("User");
+    api.mainModule("common/user-model.js");;
 });
