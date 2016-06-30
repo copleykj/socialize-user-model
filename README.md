@@ -58,7 +58,7 @@ export class PostableUser extends PostableModel(Profile){
     }
 }
 
-PostableProfile.updateTransformFunction();
+PostableUser.updateTransformFunction();
 
 LinkableModel.registerParentModel(PostableUser);
 ```
