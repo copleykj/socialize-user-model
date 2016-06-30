@@ -41,6 +41,28 @@ User.methods({
 });
 ```
 
+## Advanced Usage ##
+
+The `User` class extends the `LinkParent` class provided by _socialize:linkable-model_. This allows you to extend the `User` class using linkable packages such as _socialize:likeable_, _socialize:commentable_, and _socialize:postable_.
+
+For example you could create a user that would allow other users to add posts to it.
+
+```javascript
+import { PostableModel } from 'meteor/socialize:postable';
+import { Profile } from 'meteor/socialize:user-profile';
+import { LinkableModel } from 'meteor/socialize:linkable-model';
+
+export class PostableUser extends PostableModel(Profile){
+    constructor(document){
+        super(document);
+    }
+}
+
+PostableProfile.updateTransformFunction();
+
+LinkableModel.registerParentModel(PostableUser);
+```
+
 # Supporting the Project #
 In the spirit of keeping this and all of the packages in the [Socialize](https://atmospherejs.com/socialize) set alive, I ask that if you find this package useful, please donate to it's development.
 
