@@ -12,7 +12,7 @@ export class User extends LinkParent{
     * The personal name of the user account, You if the the user represents the
     * currently logged in user, or this.username otherwise
     * @method name
-    * @returns {S} A name representation of the user account
+    * @returns {String} A name representation of the user account
     */
     displayName() {
         return this.isSelf() ? "You" : this.username;
