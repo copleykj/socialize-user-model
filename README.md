@@ -53,17 +53,18 @@ The `User` class extends the `LinkParent` class provided by _socialize:linkable-
 For example you could create a user that would allow other users to add posts to it.
 
 ```javascript
-import { PostableModel } from 'meteor/socialize:postable';
-import { Profile } from 'meteor/socialize:user-profile';
+import { LikeableModel } from 'meteor/socialize:likeable';
+import { User } from 'meteor/socialize:user-model';
 import { LinkableModel } from 'meteor/socialize:linkable-model';
 
-export class PostableUser extends PostableModel(Profile){
-    constructor(document){
-        super(document);
-    }
+export class MyAwesomeUser extends LikeableModel(User){
+
 }
 
-PostableUser.updateTransformFunction();
-
-LinkableModel.registerParentModel(PostableUser);
+//attach the LikeableSchema so the likeCount can be stored on the user
+MyAwesomeUser.attachSchema(LikeableModel.LikeableSchema);
+//update the transform function so LikeableUser's are returned when we call find or findOne on the users collection
+MyAwesomeUser.updateTransformFunction();
+//register MyAwesomeUser as a LinkParent
+LinkableModel.registerParentModel(MyAwesomeUser);
 ```
