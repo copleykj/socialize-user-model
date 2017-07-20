@@ -2,6 +2,7 @@
 import { Meteor } from 'meteor/meteor';
 import { LinkableModel, LinkParent } from 'meteor/socialize:linkable-model';
 import SimpleSchema from 'simpl-schema';
+/* eslint-enable import/no-unresolved */
 
 /**
  * Represents a User
