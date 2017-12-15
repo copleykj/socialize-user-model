@@ -10,6 +10,11 @@ import SimpleSchema from 'simpl-schema';
  * @param {Object} document An object representing a conversation ususally a Mongo document
  */
 export class User extends LinkParent { //eslint-disable-line
+    static fieldsToPublish = { username: true };
+
+    static addFieldsToPublish(fieldsObj) {
+        Object.assign(this.fieldsToPublish, fieldsObj);
+    }
 
     /**
     * The personal name of the user account, You if the the user represents the
