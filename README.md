@@ -18,10 +18,6 @@ $ meteor add socialize:user-model
 
 ## Basic Usage ##
 
-> __Note__
->    
-> _This package completely disables updates to the users collection from the client to remove the ability of users to arbitrarily update the profile field on the user document._
-
 Once you have installed the package using it is rather simple. Because the `User` class is a decendent of `BaseModel`, the users collection is attached to the class, so `Meteor.users.findOne` will return an instance of the class, and the cursor returned from `Meteor.users.find` will return instances of the class when iterated over.
 
 Once you have an instance of the `User` class, you can then call it's methods.
