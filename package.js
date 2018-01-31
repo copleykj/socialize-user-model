@@ -15,6 +15,8 @@ Package.onUse(function _(api) {
         'accounts-base',
     ]);
 
+    api.use('accounts-password', { weak: true });
+
     api.imply(['socialize:linkable-model', 'accounts-base']);
 
     api.mainModule('common/user-model.js');

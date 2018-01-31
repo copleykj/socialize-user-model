@@ -27,8 +27,14 @@ Meteor.publish('usersWithRestrictedFields', function(){
 
 ## Instance Methods ##
 
-**displayName()** - A representation of the user. "You" if the instance is the same as the current user, instance.username otherwise.
+**displayName()** - A representation of the user. "You" if the instance is the same as the current user, `this.username` otherwise.
 
-**isSelf(user)** - Checks if one user is another user by comparing \_id's.
+**isSelf(user)** - Checks if one user is another user by comparing `_id`'s.
 
-**defaultEmail** - Returns the first email address in the array of users emails emails.
+### accounts-password Integration ###
+
+When the `accounts-password` package is installed the following additional methods are available on the user object.
+
+**defaultEmail()** - returns the default email address for the user.
+
+**setDefaultEmail(emailAddress)** - Sets the supplied address ad the default emails address for the user if the user is the current user. Supplied address must be one of the users current email addresses located in `user.emails`, otherwise it is ignored.

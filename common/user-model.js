@@ -1,5 +1,7 @@
+/* global Package */
 /* eslint-disable import/no-unresolved */
 import { Meteor } from 'meteor/meteor';
+import { check } from 'meteor/check';
 import { LinkableModel, LinkParent } from 'meteor/socialize:linkable-model';
 import SimpleSchema from 'simpl-schema';
 /* eslint-enable import/no-unresolved */
@@ -35,14 +37,6 @@ export class User extends LinkParent { //eslint-disable-line
 
         return this._id === userId;
     }
-
-    /**
-    * Get the default email address for the user
-    * @returns {String} The users default email address
-    */
-    defaultEmail() {
-        return this.emails && this.emails[0].address;
-    }
 }
 
 User.attachCollection(Meteor.users);
@@ -72,6 +66,9 @@ const UsersSchema = new SimpleSchema({
     'emails.$.verified': {
         type: Boolean,
     },
+    'emails.$.default': {
+        type: Boolean,
+    },
     createdAt: {
         type: Date,
     },
@@ -90,3 +87,45 @@ const UsersSchema = new SimpleSchema({
 User.attachSchema(UsersSchema);
 
 LinkableModel.registerParentModel(User);
+
+
+if (Package['accounts-password']) {
+    Meteor.methods({
+        /**
+         * Sets the default email for the currently logged in users
+         * @param {String} emailAddress The email address to set as the current
+         */
+        setDefaultEmail(emailAddress) {
+            check(emailAddress, String);
+            if (this.userId) {
+                const user = Meteor.users.findOne({ _id: this.userId, 'emails.address': emailAddress });
+                if (user) {
+                    Meteor.users.update({ _id: this.userId, 'emails.default': true }, { $set: { 'emails.$.default': false } });
+                    Meteor.users.update({ _id: this.userId, 'emails.address': emailAddress }, { $set: { 'emails.$.default': true } });
+                }
+            } else {
+                throw new Meteor.Error('NotAuthorized', 'You must be logged in to perform this operation.');
+            }
+        },
+    });
+
+    User.methods({
+        /**
+         * Set the default email address for the user
+         * @param {[type]} emailAddress [description]
+         */
+        setDefaultEmail(emailAddress) {
+            if (Meteor.user().isSelf()) {
+                Meteor.call('setDefaultEmail', emailAddress);
+            }
+        },
+        /**
+        * Get the default email address for the user
+        * @returns {String} The users default email address
+        */
+        defaultEmail() {
+            const obj = this.emails.find(rec => rec.default === true);
+            return (obj && obj.address) || this.emails[0].address;
+        },
+    });
+}
