@@ -1,22 +1,23 @@
+/* global Package */
+
 Package.describe({
-    name: "socialize:user-model",
-    summary: "A social user package",
-    version: "0.1.7",
-    git: "https://github.com/copleykj/socialize-user-model.git"
+    name: 'socialize:user-model',
+    summary: 'A social user package',
+    version: '1.0.0',
+    git: 'https://github.com/copleykj/socialize-user-model.git',
 });
 
-Package.onUse(function(api) {
-    api.versionsFrom("1.0.2.1");
+Package.onUse(function _(api) {
+    api.versionsFrom('1.3');
 
     api.use([
-        "socialize:base-model@0.4.0",
-        "accounts-base"
+        'socialize:linkable-model@1.0.0',
+        'accounts-base',
     ]);
 
-    api.imply(["socialize:base-model", "accounts-base"]);
+    api.use('accounts-password', { weak: true });
 
-    //Add the user-model files
-    api.addFiles("common/user-model.js");
+    api.imply(['socialize:linkable-model', 'accounts-base']);
 
-    api.export("User");
+    api.mainModule('common/user-model.js');
 });
