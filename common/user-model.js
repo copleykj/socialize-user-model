@@ -68,6 +68,7 @@ const UsersSchema = new SimpleSchema({
     },
     'emails.$.default': {
         type: Boolean,
+        optional: true,
     },
     createdAt: {
         type: Date,
