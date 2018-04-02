@@ -9,7 +9,7 @@ import SimpleSchema from 'simpl-schema';
 /**
  * Represents a User
  * @class User
- * @param {Object} document An object representing a conversation ususally a Mongo document
+ * @param {Object} document An object representing a user ususally a Mongo document
  */
 export class User extends LinkParent { //eslint-disable-line
     static fieldsToPublish = { username: true };
