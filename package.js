@@ -19,5 +19,5 @@ Package.onUse(function _(api) {
 
     api.imply(['socialize:linkable-model', 'accounts-base']);
 
-    api.mainModule('common/user-model.js');
+    api.mainModule('common/common.js');
 });
