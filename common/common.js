@@ -7,6 +7,6 @@ import { LinkableModel, LinkParent } from 'meteor/socialize:linkable-model';
 
 import construct from './user-model.js';
 
-const User = construct({ Meteor, Package, check, LinkableModel, LinkParent });
+const { User, UsersCollection } = construct({ Meteor, Package, check, LinkableModel, LinkParent });
 
-export { User };
+export { User, UsersCollection };

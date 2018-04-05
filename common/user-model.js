@@ -129,5 +129,5 @@ export default ({ Meteor, Package, check, LinkableModel, LinkParent }) => {
         });
     }
 
-    return User;
+    return { User, UsersCollection: Meteor.users };
 };

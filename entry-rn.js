@@ -9,6 +9,6 @@ const Package = {
     'accounts-password': {},
 };
 
-const User = construct({ Meteor, Package, LinkableModel, LinkParent });
+const { User, UsersCollection } = construct({ Meteor, Package, LinkableModel, LinkParent });
 
-export { User };
+export { User, UsersCollection };
