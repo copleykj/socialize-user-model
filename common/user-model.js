@@ -10,7 +10,7 @@ export default ({ Meteor, Package, check, LinkableModel, LinkParent }) => {
     * @param {Object} document An object representing a user ususally a Mongo document
     */
     class User extends LinkParent { //eslint-disable-line
-        static fieldsToPublish = { username: true };
+        static fieldsToPublish = { username: 1 };
 
         static addFieldsToPublish(fieldsObj) {
             Object.assign(this.fieldsToPublish, fieldsObj);
