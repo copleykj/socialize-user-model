@@ -118,7 +118,8 @@ MyAwesomeUser.updateTransformFunction();
 //register MyAwesomeUser as a LinkParent
 LinkableModel.registerParentModel(MyAwesomeUser);
 ```
-For a more in depth explanation of how to use this package see [API.md](API.md)
+For a more in depth explanation of how to use this package see [API.md](api)
 
 [meteor]: https://meteor.com
 [socialize]: https://atmospherejs.com/socialize
+[api]: https://github.com/copleykj/socialize-user-model/blob/master/API.md
