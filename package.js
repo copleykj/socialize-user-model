@@ -3,7 +3,7 @@
 Package.describe({
     name: 'socialize:user-model',
     summary: 'A social user package',
-    version: '1.0.1',
+    version: '1.0.2',
     git: 'https://github.com/copleykj/socialize-user-model.git',
 });
 
@@ -11,7 +11,7 @@ Package.onUse(function _(api) {
     api.versionsFrom('1.3');
 
     api.use([
-        'socialize:linkable-model@1.0.0',
+        'socialize:linkable-model@1.0.3',
         'accounts-base',
     ]);
 
@@ -19,5 +19,5 @@ Package.onUse(function _(api) {
 
     api.imply(['socialize:linkable-model', 'accounts-base']);
 
-    api.mainModule('common/user-model.js');
+    api.mainModule('common/common.js');
 });
