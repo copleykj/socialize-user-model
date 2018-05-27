@@ -11,7 +11,7 @@ Package.onUse(function _(api) {
     api.versionsFrom('1.3');
 
     api.use([
-        'socialize:linkable-model@1.0.0',
+        'socialize:linkable-model@1.0.3',
         'accounts-base',
     ]);
 
