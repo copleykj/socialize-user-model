@@ -3,7 +3,7 @@
 Package.describe({
     name: 'socialize:user-model',
     summary: 'A social user package',
-    version: '1.0.1',
+    version: '1.0.2',
     git: 'https://github.com/copleykj/socialize-user-model.git',
 });
 
