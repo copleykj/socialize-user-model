@@ -24,7 +24,7 @@
     },
     "homepage": "https://github.com/copleykj/socialize-user-model#readme",
     "dependencies": {
-        "@socialize/linkable-model": "^1.0.5"
+        "@socialize/linkable-model": "^1.0.6"
     },
     "devDependencies": {
         "rimraf": "^3.0.2"
